@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Tool Pro (Object Talk) by @SuhendarTeknoID Builder 2026 Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --accent-glow: rgba(99, 102, 241, 0.6);
+            --gold-glow: rgba(245, 158, 11, 0.4);
+            --dropdown-bg: #0f172a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 10% 10%, var(--accent-glow) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, var(--gold-glow) 0%, transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-style {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #f8fafc;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            appearance: none;
+        }
+
+        .input-style:focus {
+            outline: none;
+            border-color: #818cf8;
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .input-style option {
+            background-color: var(--dropdown-bg);
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        .input-style optgroup {
+            background-color: #1e293b;
+            color: #818cf8;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+
+        .btn-generate {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-reset {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #f87171;
+        }
+
+        .copy-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-badge:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            border-color: #6366f1;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-black tracking-tight mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-amber-400">
+                Magic Tool Pro (Object Talk)
+            </h1>
+            <div class="flex flex-col items-center gap-1">
+                <p class="text-indigo-200 font-medium text-xs md:text-sm opacity-80 tracking-wide">
+                    by @SuhendarTeknoID Builder
+                </p>
+                <span class="px-3 py-0.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-amber-400 text-[9px] font-bold uppercase tracking-widest">
+                    2026 Edition
+                </span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-5 space-y-6">
+                <div class="glass-card p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-8 border-b border-white/5 pb-4">
+                        <i class="fas fa-wand-magic-sparkles text-indigo-400 text-xl"></i>
+                        <h2 class="text-lg font-bold tracking-tight">Generator Parameters</h2>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- Objek Utama -->
+                        <div>
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Objek Utama</label>
+                            <input type="text" id="objekUtama" value="Kopi Hitam Mengepul" placeholder="Misal: iPhone 15 Pro, Kucing Persia" class="input-style">
+                        </div>
+
+                        <!-- Karakter Suara -->
+                        <div>
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Karakter Suara</label>
+                            <select id="karakterSuara" class="input-style cursor-pointer">
+                                <optgroup label="👩‍💼 SUARA WANITA">
+                                    <option value="Wanita - Ceria & Tinggi">✨ Wanita - Ceria & Tinggi</option>
+                                    <option value="Wanita - Lembut & Tenang">🍃 Wanita - Lembut & Tenang</option>
+                                    <option value="Wanita - Dewasa & Elegan" selected>💎 Wanita - Dewasa & Elegan</option>
+                                    <option value="Wanita - Tegas & Berwibawa">🛡️ Wanita - Tegas & Berwibawa</option>
+                                    <option value="Wanita - Anak-anak Lucu">🧸 Wanita - Anak-anak Lucu</option>
+                                    <option value="Wanita - Serak Basah (Sultry)">🔥 Wanita - Serak Basah (Sultry)</option>
+                                    <option value="Wanita - Narator Dokumenter">📖 Wanita - Narator Dokumenter</option>
+                                </optgroup>
+                                <optgroup label="👨‍💼 SUARA PRIA">
+                                    <option value="Pria - Berat & Deep (Bass)">🌊 Pria - Berat & Deep (Bass)</option>
+                                    <option value="Pria - Ramah & Energik">⚡ Pria - Ramah & Energik</option>
+                                    <option value="Pria - Bapak-bapak Bijak">👴 Pria - Bapak-bapak Bijak</option>
+                                    <option value="Pria - Cool & Datar">🕶️ Pria - Cool & Datar</option>
+                                    <option value="Pria - Anak-anak Cowok">🪁 Pria - Anak-anak Cowok</option>
+                                    <option value="Pria - Serak & Kasar">🦾 Pria - Serak & Kasar</option>
+                                    <option value="Pria - Narator Berita">📺 Pria - Narator Berita</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Persona -->
+                        <div>
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Persona Objek / Emosi</label>
+                            <select id="persona" class="input-style cursor-pointer">
+                                <option value="Sangat Antusias & Enerjik">🔥 Antusias & Enerjik</option>
+                                <option value="Misterius & Gelap">🌑 Misterius & Gelap</option>
+                                <option value="Bijaksana & Tenang">📜 Bijaksana & Tenang</option>
+                                <option value="Sombong & Elegan">💎 Sombong & Elegan</option>
+                                <option value="Konyol & Lucu">🤡 Konyol & Lucu</option>
+                                <option value="Melankolis & Sedih">💧 Melankolis & Sedih</option>
+                                <option value="Agresif & Provokatif">🧨 Agresif & Provokatif</option>
+                                <option value="Sarkastik & Cerdas" selected>😏 Sarkastik & Cerdas</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Visual Style</label>
+                            <select id="visualStyle" class="input-style cursor-pointer">
+                                <optgroup label="🎨 1. ART & ILLUSTRATION STYLE">
+                                    <option value="Realism">Realism</option>
+                                    <option value="Hyperrealism">Hyperrealism</option>
+                                    <option value="Photorealism">Photorealism</option>
+                                    <option value="Surrealism">Surrealism</option>
+                                    <option value="Abstract">Abstract</option>
+                                    <option value="Expressionism">Expressionism</option>
+                                    <option value="Impressionism">Impressionism</option>
+                                    <option value="Cubism">Cubism</option>
+                                    <option value="Pop Art">Pop Art</option>
+                                    <option value="Minimalism">Minimalism</option>
+                                    <option value="Maximalism">Maximalism</option>
+                                    <option value="Doodle Art">Doodle Art</option>
+                                    <option value="Line Art">Line Art</option>
+                                    <option value="Sketch Style">Sketch Style</option>
+                                    <option value="Ink Drawing">Ink Drawing</option>
+                                    <option value="Watercolor">Watercolor</option>
+                                    <option value="Oil Painting">Oil Painting</option>
+                                    <option value="Acrylic Painting">Acrylic Painting</option>
+                                    <option value="Pastel Art">Pastel Art</option>
+                                    <option value="Charcoal Drawing">Charcoal Drawing</option>
+                                    <option value="Vector Art">Vector Art</option>
+                                    <option value="Flat Illustration">Flat Illustration</option>
+                                    <option value="Isometric Illustration">Isometric Illustration</option>
+                                    <option value="Low Poly Art">Low Poly Art</option>
+                                    <option value="Pixel Art">Pixel Art</option>
+                                    <option value="Collage Art">Collage Art</option>
+                                    <option value="Graffiti Street Art">Graffiti Street Art</option>
+                                    <option value="Comic Style Western">Comic Style Western</option>
+                                    <option value="Manga Style">Manga Style</option>
+                                    <option value="Anime Style">Anime Style</option>
+                                    <option value="Semi-realistic Illustration">Semi-realistic Illustration</option>
+                                    <option value="Caricature">Caricature</option>
+                                    <option value="Concept Art">Concept Art</option>
+                                    <option value="Matte Painting">Matte Painting</option>
+                                </optgroup>
+                                <optgroup label="🎥 2. CINEMATIC & VIDEO STYLE">
+                                    <option value="Cinematic Realism" selected>Cinematic Realism</option>
+                                    <option value="Hollywood Style">Hollywood Style</option>
+                                    <option value="Documentary Style">Documentary Style</option>
+                                    <option value="Found Footage">Found Footage</option>
+                                    <option value="Handheld Camera Style">Handheld Camera Style</option>
+                                    <option value="Steadicam Smooth">Steadicam Smooth</option>
+                                    <option value="Drone Aerial Shot">Drone Aerial Shot</option>
+                                    <option value="Slow Motion">Slow Motion</option>
+                                    <option value="Time-lapse">Time-lapse</option>
+                                    <option value="Hyperlapse">Hyperlapse</option>
+                                    <option value="Vintage Film grain, burn">Vintage Film grain, burn</option>
+                                    <option value="Noir hitam putih kontras tinggi">Noir hitam putih kontras tinggi</option>
+                                    <option value="Cyberpunk Cinematic">Cyberpunk Cinematic</option>
+                                    <option value="Futuristic Sci-fi">Futuristic Sci-fi</option>
+                                    <option value="Post-apocalyptic">Post-apocalyptic</option>
+                                    <option value="Fantasy Epic">Fantasy Epic</option>
+                                    <option value="Horror Dark Tone">Horror Dark Tone</option>
+                                    <option value="Thriller Suspense">Thriller Suspense</option>
+                                    <option value="Romantic Soft Tone">Romantic Soft Tone</option>
+                                    <option value="Action Fast Cut">Action Fast Cut</option>
+                                    <option value="Music Video Style">Music Video Style</option>
+                                    <option value="Commercial Iklan Style">Commercial Iklan Style</option>
+                                    <option value="TikTok Short-form Style">TikTok Short-form Style</option>
+                                    <option value="Vlog Style">Vlog Style</option>
+                                    <option value="Interview Talking Head">Interview Talking Head</option>
+                                </optgroup>
+                                <optgroup label="🧸 3. 3D & ANIMATION STYLE">
+                                    <option value="Pixar Style">Pixar Style</option>
+                                    <option value="Disney Style">Disney Style</option>
+                                    <option value="DreamWorks Style">DreamWorks Style</option>
+                                    <option value="Anime 3D">Anime 3D</option>
+                                    <option value="Clay Animation Claymation">Clay Animation Claymation</option>
+                                    <option value="Needle Felt Style">Needle Felt Style</option>
+                                    <option value="Stop Motion">Stop Motion</option>
+                                    <option value="Low Poly 3D">Low Poly 3D</option>
+                                    <option value="Stylized 3D">Stylized 3D</option>
+                                    <option value="Realistic 3D Render">Realistic 3D Render</option>
+                                    <option value="Game Cinematic Style">Game Cinematic Style</option>
+                                    <option value="VR Metaverse Style">VR Metaverse Style</option>
+                                    <option value="Cartoon 3D">Cartoon 3D</option>
+                                    <option value="Chibi 3D">Chibi 3D</option>
+                                    <option value="Toon Shader Style">Toon Shader Style</option>
+                                    <option value="Soft 3D Render">Soft 3D Render</option>
+                                    <option value="Hard Surface 3D">Hard Surface 3D</option>
+                                    <option value="Sculpted 3D">Sculpted 3D</option>
+                                    <option value="Voxel Art">Voxel Art</option>
+                                </optgroup>
+                                <optgroup label="📸 4. PHOTOGRAPHY STYLE">
+                                    <option value="Portrait Photography">Portrait Photography</option>
+                                    <option value="Street Photography">Street Photography</option>
+                                    <option value="Documentary Photography">Documentary Photography</option>
+                                    <option value="Fashion Photography">Fashion Photography</option>
+                                    <option value="Editorial Photography">Editorial Photography</option>
+                                    <option value="Lifestyle Photography">Lifestyle Photography</option>
+                                    <option value="Product Photography">Product Photography</option>
+                                    <option value="Food Photography">Food Photography</option>
+                                    <option value="Macro Photography">Macro Photography</option>
+                                    <option value="Wildlife Photography">Wildlife Photography</option>
+                                    <option value="Landscape Photography">Landscape Photography</option>
+                                    <option value="Astrophotography">Astrophotography</option>
+                                    <option value="Black & White Photography">Black & White Photography</option>
+                                    <option value="High Key terang">High Key terang</option>
+                                    <option value="Low Key gelap dramatis">Low Key gelap dramatis</option>
+                                    <option value="HDR Photography">HDR Photography</option>
+                                    <option value="Bokeh Style">Bokeh Style</option>
+                                    <option value="Golden Hour Lighting">Golden Hour Lighting</option>
+                                    <option value="Neon Lighting">Neon Lighting</option>
+                                    <option value="Studio Lighting">Studio Lighting</option>
+                                    <option value="Natural Light">Natural Light</option>
+                                </optgroup>
+                                <optgroup label="💻 5. DIGITAL & DESIGN STYLE">
+                                    <option value="UI UX Clean">UI UX Clean</option>
+                                    <option value="Glassmorphism">Glassmorphism</option>
+                                    <option value="Neumorphism">Neumorphism</option>
+                                    <option value="Skeuomorphism">Skeuomorphism</option>
+                                    <option value="Flat Design">Flat Design</option>
+                                    <option value="Material Design">Material Design</option>
+                                    <option value="Brutalism Web Design">Brutalism Web Design</option>
+                                    <option value="Retro UI">Retro UI</option>
+                                    <option value="Futuristic UI">Futuristic UI</option>
+                                    <option value="Dark Mode Design">Dark Mode Design</option>
+                                    <option value="Gradient Style">Gradient Style</option>
+                                    <option value="Monochrome">Monochrome</option>
+                                    <option value="Duotone">Duotone</option>
+                                    <option value="Typography Focus">Typography Focus</option>
+                                    <option value="Grid-based Design">Grid-based Design</option>
+                                </optgroup>
+                                <optgroup label="🧬 6. AESTHETIC & TREND STYLE">
+                                    <option value="Vaporwave">Vaporwave</option>
+                                    <option value="Synthwave">Synthwave</option>
+                                    <option value="Retro 80s">Retro 80s</option>
+                                    <option value="Retro 90s">Retro 90s</option>
+                                    <option value="Y2K Style">Y2K Style</option>
+                                    <option value="Cyberpunk">Cyberpunk</option>
+                                    <option value="Steampunk">Steampunk</option>
+                                    <option value="Cottagecore">Cottagecore</option>
+                                    <option value="Dark Academia">Dark Academia</option>
+                                    <option value="Light Academia">Light Academia</option>
+                                    <option value="Minimal Aesthetic">Minimal Aesthetic</option>
+                                    <option value="Clean Girl Aesthetic">Clean Girl Aesthetic</option>
+                                    <option value="Grunge">Grunge</option>
+                                    <option value="Indie Style">Indie Style</option>
+                                    <option value="Soft Aesthetic">Soft Aesthetic</option>
+                                    <option value="Dreamy Ethereal">Dreamy Ethereal</option>
+                                    <option value="Gothic">Gothic</option>
+                                    <option value="Pastel Color Palette">Pastel Color Palette</option>
+                                    <option value="Neon Glow">Neon Glow</option>
+                                    <option value="Luxury High-end">Luxury High-end</option>
+                                    <option value="Streetwear Style">Streetwear Style</option>
+                                </optgroup>
+                                <optgroup label="🌍 7. CULTURAL & ERA STYLE">
+                                    <option value="Japanese Traditional">Japanese Traditional</option>
+                                    <option value="Korean Aesthetic">Korean Aesthetic</option>
+                                    <option value="Chinese Ink Style">Chinese Ink Style</option>
+                                    <option value="Balinese Art Style">Balinese Art Style</option>
+                                    <option value="African Tribal">African Tribal</option>
+                                    <option value="Middle Eastern Pattern">Middle Eastern Pattern</option>
+                                    <option value="Renaissance Art">Renaissance Art</option>
+                                    <option value="Baroque">Baroque</option>
+                                    <option value="Rococo">Rococo</option>
+                                    <option value="Victorian Era">Victorian Era</option>
+                                    <option value="Medieval Style">Medieval Style</option>
+                                    <option value="Ancient Greek">Ancient Greek</option>
+                                    <option value="Roman Classic">Roman Classic</option>
+                                    <option value="Art Deco">Art Deco</option>
+                                    <option value="Art Nouveau">Art Nouveau</option>
+                                </optgroup>
+                                <optgroup label="🧪 8. SPECIAL EFFECT & VISUAL FX STYLE">
+                                    <option value="Glitch Effect">Glitch Effect</option>
+                                    <option value="Double Exposure">Double Exposure</option>
+                                    <option value="Motion Blur">Motion Blur</option>
+                                    <option value="Light Leak">Light Leak</option>
+                                    <option value="Lens Flare">Lens Flare</option>
+                                    <option value="Chromatic Aberration">Chromatic Aberration</option>
+                                    <option value="Depth of Field">Depth of Field</option>
+                                    <option value="Fog Mist Effect">Fog Mist Effect</option>
+                                    <option value="Smoke Effect">Smoke Effect</option>
+                                    <option value="Fire Effect">Fire Effect</option>
+                                    <option value="Explosion FX">Explosion FX</option>
+                                    <option value="Particle FX">Particle FX</option>
+                                    <option value="Hologram Effect">Hologram Effect</option>
+                                    <option value="Liquid Metal">Liquid Metal</option>
+                                    <option value="Mirror Reflection">Mirror Reflection</option>
+                                    <option value="Fractal Art">Fractal Art</option>
+                                    <option value="Kaleidoscope">Kaleidoscope</option>
+                                </optgroup>
+                                <optgroup label="🧠 9. AI GENERATIVE STYLE">
+                                    <option value="Ultra-realistic">Ultra-realistic</option>
+                                    <option value="Hyper-detailed">Hyper-detailed</option>
+                                    <option value="8K Render">8K Render</option>
+                                    <option value="Cinematic Lighting">Cinematic Lighting</option>
+                                    <option value="Volumetric Lighting">Volumetric Lighting</option>
+                                    <option value="Global Illumination">Global Illumination</option>
+                                    <option value="Unreal Engine Style">Unreal Engine Style</option>
+                                    <option value="Octane Render">Octane Render</option>
+                                    <option value="Blender Render">Blender Render</option>
+                                    <option value="Photobash Style">Photobash Style</option>
+                                    <option value="AI Collage">AI Collage</option>
+                                    <option value="Procedural Art">Procedural Art</option>
+                                </optgroup>
+                                <optgroup label="🎮 10. GAME & FANTASY STYLE">
+                                    <option value="RPG Fantasy">RPG Fantasy</option>
+                                    <option value="MMORPG Style">MMORPG Style</option>
+                                    <option value="Battle Royale Style">Battle Royale Style</option>
+                                    <option value="Anime Game Style">Anime Game Style</option>
+                                    <option value="Realistic War Game">Realistic War Game</option>
+                                    <option value="Stylized Fantasy">Stylized Fantasy</option>
+                                    <option value="Dark Souls-like">Dark Souls-like</option>
+                                    <option value="Cartoon Game Style">Cartoon Game Style</option>
+                                    <option value="Pixel Game Retro">Pixel Game Retro</option>
+                                    <option value="Open World Cinematic">Open World Cinematic</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Konteks -->
+                        <div>
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Konteks Cerita (Opsional)</label>
+                            <textarea id="storyContext" rows="3" class="input-style resize-none" placeholder="Ceritakan latar belakang atau pesan spesifik...">Aku adalah secangkir kopi hitam yang terlupakan di atas meja kerja. Berikan narasi yang sedikit sombong tentang betapa pentingnya kehadiranku bagi manusia yang sedang stres ini.</textarea>
+                        </div>
+
+                        <!-- Settings -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Jml Scene</label>
+                                <select id="sceneCount" class="input-style">
+                                    <script>for(let i=1; i<=15; i++) document.write(`<option value="${i}" ${i === 3 ? 'selected' : ''}>${i} Scene</option>`);</script>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Durasi / Scene</label>
+                                <select id="sceneDuration" class="input-style">
+                                    <script>for(let i=4; i<=15; i++) document.write(`<option value="${i}" ${i === 6 ? 'selected' : ''}>${i} Detik</option>`);</script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 pt-4">
+                            <button onclick="resetForm()" class="btn-reset px-6 py-4 rounded-xl font-black text-xs tracking-widest flex items-center gap-2">
+                                <i class="fas fa-undo"></i> RESET
+                            </button>
+                            <button onclick="generateMagic()" id="genBtn" class="btn-generate flex-1 py-4 rounded-xl font-black text-xs tracking-widest flex items-center justify-center gap-2">
+                                <i class="fas fa-wand-magic-sparkles"></i> GENERATE MAGIC PRO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div id="loading" class="hidden glass-card p-16 text-center space-y-6">
+                    <div class="relative w-24 h-24 mx-auto">
+                        <div class="absolute inset-0 border-4 border-indigo-500/20 rounded-full"></div>
+                        <div class="absolute inset-0 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+                        <i class="fas fa-brain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-indigo-400 text-3xl animate-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight">AI Sedang Meracik Konten...</h3>
+                        <p class="text-gray-400 text-xs mt-2">Menyusun narasi sinematik dan prompt visual ultra-hd.</p>
+                    </div>
+                </div>
+
+                <div id="resultContent" class="hidden space-y-6 result-section">
+                    <div class="glass-card p-4 bg-gradient-to-br from-indigo-900/40 to-slate-900/40 border-indigo-500/30">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <p class="text-[8px] text-indigo-300 uppercase font-black tracking-widest mb-1">Total Scene</p>
+                                <p id="resTotalScene" class="text-lg font-bold text-white">0</p>
+                            </div>
+                            <div>
+                                <p class="text-[8px] text-indigo-300 uppercase font-black tracking-widest mb-1">Total Durasi</p>
+                                <p id="resTotalDurasi" class="text-lg font-bold text-white">0s</p>
+                            </div>
+                            <div>
+                                <p class="text-[8px] text-indigo-300 uppercase font-black tracking-widest mb-1">Total Kata</p>
+                                <p id="resTotalWords" class="text-lg font-bold text-white">0</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/10">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[8px] font-black text-gray-500 uppercase tracking-widest">Full Script Narrative</label>
+                                <button onclick="copyContent('resFullDialogue')" class="copy-badge scale-75">COPY ALL</button>
+                            </div>
+                            <p id="resFullDialogue" class="text-xs italic text-indigo-100/80 leading-snug"></p>
+                        </div>
+                    </div>
+
+                    <div id="sceneContainer" class="space-y-6 pb-20"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function generateMagic() {
+            const btn = document.getElementById('genBtn');
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('resultContent');
+            const sceneContainer = document.getElementById('sceneContainer');
+
+            const params = {
+                objek: document.getElementById('objekUtama').value,
+                suara: document.getElementById('karakterSuara').value,
+                persona: document.getElementById('persona').value,
+                visual: document.getElementById('visualStyle').value,
+                konteks: document.getElementById('storyContext').value,
+                count: parseInt(document.getElementById('sceneCount').value),
+                dur: parseInt(document.getElementById('sceneDuration').value)
+            };
+
+            if(!params.objek) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> Magic Processing...`;
+            loading.classList.remove('hidden');
+            result.classList.add('hidden');
+            sceneContainer.innerHTML = '';
+
+            try {
+                const systemPrompt = `Act as a viral creator for "Object Talk" videos. Create a script where ${params.objek} speaks.
+                Structure: 1. Strong Hook, 2. Escalation, 3. Facts/Origin, 4. Wow Factor, 5. Apex, 6. Twist, 7. CTA.
+                
+                PRODUCTION STANDARDS (STRICT):
+                - Dialogue: STRICTLY Bahasa Indonesia (Cinematic, use [Intonation/Expression] tags like [Sinis], [Tertawa Kecil], [Nada Rendah]).
+                - SCENE CONTINUITY: Every scene must logically connect to the next one to form a single cohesive narrative.
+                - CINEMATIC CAMERA: Vary camera angles for each scene to maintain visual interest (e.g., Extreme Close-up on details, Low-angle powerful shot, Side-profile tracking, Wide context shot).
+                - Master Character Prompt: Specific English description of the object's appearance AND its unique vocal characteristics/tone (based on ${params.suara}) to ensure identity remains identical across all scenes.
+                - Master Prompt: Shared English baseline for consistency.
+                - i2vPrompt: MUST include the Indonesian dialogue text, ASMR description, specific camera movement directions (e.g., "Camera slowly zooms in on the object's eyes"), and vocal delivery style.`;
+                
+                const userPrompt = `OBJECT: ${params.objek}, VOICE: ${params.suara}, PERSONA: ${params.persona}, VISUAL: ${params.visual}, CONTEXT: ${params.konteks}, SCENES: ${params.count}, DURATION: ${params.dur}s.`;
+
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: userPrompt }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] },
+                        generationConfig: { 
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    masterPrompt: { type: "STRING" },
+                                    masterCharacterPrompt: { type: "STRING" },
+                                    totalWords: { type: "NUMBER" },
+                                    scenes: {
+                                        type: "ARRAY",
+                                        items: {
+                                            type: "OBJECT",
+                                            properties: {
+                                                sceneNumber: { type: "NUMBER" },
+                                                dialogue: { type: "STRING" },
+                                                asmr: { type: "STRING" },
+                                                t2iPrompt: { type: "STRING" },
+                                                negativePrompt: { type: "STRING" },
+                                                i2vPrompt: { type: "STRING" },
+                                                wordCount: { type: "NUMBER" }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    })
+                });
+
+                const data = await response.json();
+                const output = JSON.parse(data.candidates[0].content.parts[0].text);
+                renderResults(output, params);
+
+            } catch (error) {
+                console.error(error);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fas fa-wand-magic-sparkles"></i> GENERATE MAGIC PRO`;
+                loading.classList.add('hidden');
+            }
+        }
+
+        function renderResults(data, input) {
+            const container = document.getElementById('sceneContainer');
+            const resultPanel = document.getElementById('resultContent');
+
+            document.getElementById('resTotalScene').innerText = data.scenes.length;
+            document.getElementById('resTotalDurasi').innerText = (data.scenes.length * input.dur) + 's';
+            document.getElementById('resTotalWords').innerText = data.totalWords || 0;
+            document.getElementById('resFullDialogue').innerText = data.scenes.map(s => s.dialogue).join(' ');
+
+            let masterHtml = `
+                <div class="glass-card p-4 bg-amber-500/5 border-amber-500/20">
+                    <h3 class="text-amber-400 font-black text-[8px] tracking-widest mb-4 uppercase">Master Assets Control</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-[7px] text-gray-500 font-black uppercase">MASTER PROMPT</span>
+                                <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                            </div>
+                            <p class="text-[11px] text-gray-300 font-mono leading-tight">${data.masterPrompt}</p>
+                        </div>
+                        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-[7px] text-gray-500 font-black uppercase">CHARACTER PROMPT</span>
+                                <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                            </div>
+                            <p class="text-[11px] text-gray-300 font-mono leading-tight">${data.masterCharacterPrompt}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML = masterHtml;
+
+            data.scenes.forEach(s => {
+                const html = `
+                    <div class="glass-card overflow-hidden">
+                        <div class="bg-indigo-500/10 p-3 flex justify-between items-center border-b border-white/5">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-indigo-600 text-white font-black px-2 py-0.5 rounded text-[9px] tracking-widest uppercase">Scene ${s.sceneNumber}</span>
+                                <span class="text-[9px] font-bold text-indigo-300 opacity-60"><i class="far fa-clock mr-1"></i> ${input.dur}s</span>
+                                <span class="text-[9px] font-bold text-indigo-300 opacity-60"><i class="fas fa-microphone mr-1"></i> ${s.wordCount || 0} Words</span>
+                                <span class="text-[8px] bg-white/10 px-2 py-0.5 rounded-full text-white font-bold tracking-tighter">ID-INDONESIA</span>
+                            </div>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div class="space-y-5">
+                                <!-- Bagian 1: Dialog & Intonasi -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label class="text-[9px] uppercase font-black text-indigo-400 tracking-widest">Voice Dialogue (Bahasa Indonesia)</label>
+                                        <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                                    </div>
+                                    <div class="bg-indigo-900/20 p-4 rounded-xl border border-indigo-500/10">
+                                        <p class="text-[12px] font-bold text-white leading-relaxed mb-1">${s.dialogue}</p>
+                                        <p class="text-[9px] italic text-indigo-300/60"><i class="fas fa-music mr-1"></i> ${s.asmr || 'Ambient sound'}</p>
+                                    </div>
+                                </div>
+                                <!-- Bagian 2: Gambar -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label class="text-[9px] uppercase font-black text-gray-500 tracking-widest">T2I Image Prompt</label>
+                                        <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                                    </div>
+                                    <div class="bg-black/30 p-3 rounded-lg border border-white/5">
+                                        <p class="text-[12px] text-gray-400 font-mono leading-snug">${s.t2iPrompt}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-5">
+                                <!-- Bagian 3: Filter Negatif (Sekarang di urutan ke-3) -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label class="text-[9px] uppercase font-black text-red-400/40 tracking-widest">Negative Prompt</label>
+                                        <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                                    </div>
+                                    <div class="bg-red-950/10 p-3 rounded-lg border border-red-500/5">
+                                        <p class="text-[11px] text-red-200/30 font-mono">${s.negativePrompt || 'deformed, blurry, low quality'}</p>
+                                    </div>
+                                </div>
+                                <!-- Bagian 4: Video Motion (Paling Akhir) -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label class="text-[9px] uppercase font-black text-amber-400 tracking-widest">I2V Motion & ASMR Control (Final Step)</label>
+                                        <button onclick="copyRawText(this)" class="copy-badge scale-75">COPY</button>
+                                    </div>
+                                    <div class="bg-amber-900/10 p-4 rounded-xl border border-amber-500/10">
+                                        <p class="text-[12px] text-amber-100/80 leading-relaxed font-medium">${s.i2vPrompt}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+
+            resultPanel.classList.remove('hidden');
+            resultPanel.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.getElementById('objekUtama').value = '';
+            document.getElementById('storyContext').value = '';
+            document.getElementById('resultContent').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyContent(id) {
+            const el = document.getElementById(id);
+            copyAction(el.innerText, event.target);
+        }
+
+        function copyRawText(btn) {
+            const target = btn.closest('div').nextElementSibling;
+            copyAction(target.innerText, btn);
+        }
+
+        function copyAction(text, btn) {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            
+            const original = btn.innerText;
+            btn.innerText = "COPIED!";
+            btn.style.color = "#4ade80";
+            setTimeout(() => {
+                btn.innerText = original;
+                btn.style.color = "";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
